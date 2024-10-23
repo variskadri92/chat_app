@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
   // build a list of user except for current logged in user
  Widget _buildUserList(){
     return StreamBuilder(
-        stream: _chatService.getUserStream(),
+        stream: _chatService.getUsersStreamExcludingBlocked(),
         builder: (context, snapshot){
           if (snapshot.hasError){
             return const Text("Error");

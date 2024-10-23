@@ -127,7 +127,12 @@ class _ChatPageState extends State<ChatPage> {
       child: Column(
         crossAxisAlignment: isCurrentUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
-          ChatBubble(message: data["message"], isCurrentUser: isCurrentUser)
+          ChatBubble(
+              message: data["message"],
+              isCurrentUser: isCurrentUser,
+            messageId: doc.id,
+            userId: data["senderID"],
+          )
         ],
       ),
     );
@@ -138,7 +143,7 @@ class _ChatPageState extends State<ChatPage> {
    // build message input
   Widget _buildUserInput(){
     return Padding(
-      padding: const EdgeInsets.only(bottom: 50.0),
+      padding: const EdgeInsets.only(bottom: 20.0),
       child: Row(
         children: [
           Expanded(
